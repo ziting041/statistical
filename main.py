@@ -58,4 +58,3 @@ print("🔥 AUC：", auc)
 explainer = shap.Explainer(model)
 shap_values = explainer(X_test)
 shap.summary_plot(shap_values, features=features)
-2
