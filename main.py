@@ -99,3 +99,18 @@ plt.close()
 print("📊 已儲存：agegroup_vs_admission.png")
 
 print("✅ 所有圖表已產生並儲存在資料夾中。")
+
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+
+# ===== 混淆矩陣圖 =====
+cm = confusion_matrix(y_test, y_pred)
+disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=model.classes_)
+
+plt.figure(figsize=(6, 5))
+disp.plot(cmap=plt.cm.Blues, values_format='d')
+plt.title("住院狀態預測混淆矩陣")
+plt.tight_layout()
+plt.savefig("confusion_matrix.png")
+plt.close()
+
+print("📊 混淆矩陣圖已儲存為 confusion_matrix.png")
